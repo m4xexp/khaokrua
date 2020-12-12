@@ -48,11 +48,11 @@
             <div class="auto-tag-field">
               <v-autocomplete
                 v-model="DataRecipe.recipe_tag"
+                :items="chips"
                 chips
                 deletable-chips
                 outlined
-                :items="states"
-                label="ทำไรกินดีน้า"
+                label="เลือกหมวดหมู่"
               >
               </v-autocomplete>
               <v-btn icon class="icon-more-tag-categlory"
@@ -251,7 +251,7 @@ export default {
   middleware: 'authenticated',
 
   data: () => ({
-    states: [],
+    chips: ['เมนูไข่','เครื่องดื่ม','ของหวาน','เมนูยำ','เมนูเส้น'],
     prep: ['นาที', 'ชั่วโมง', 'วัน'],
     cookTime: ['นาที', 'ชั่วโมง', 'วัน'],
 

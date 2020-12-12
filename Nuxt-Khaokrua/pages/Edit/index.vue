@@ -235,6 +235,27 @@
 
       <!-- Stepper -->
     </v-row>
+    <v-dialog persistent v-model="success" width="500">
+      <v-card>
+        <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
+        <v-card-text class="textDetail">
+          แก้ไขสูตรอาหารเรียบร้อย
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="success = !success"
+          >
+            ตกลง
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -242,12 +263,15 @@
 import axios from 'axios'
 import recipe from '../../services/recipe'
 import popup from '../../components/Popup/popup'
+import success from '../../components/Popup/Success'
+import Success from '../../components/Popup/Success.vue'
 
 export default {
   name: 'edit',
-  components: {},
+  components: {Success},
 
   data: () => ({
+    success: false,
     states: [],
     prep: ['นาที', 'ชั่วโมง', 'วัน'],
     cookTime: ['นาที', 'ชั่วโมง', 'วัน'],
@@ -320,6 +344,7 @@ export default {
         this.DataRecipe.serve = res.data[0].serve
       })
     this.$store.commit('SET_DIALOG_LOADING', false)
+    
   },
   methods: {
     openUploadModal() {
@@ -379,6 +404,7 @@ export default {
 
       console.log('Body Form', this.DataRecipe)
       this.$store.commit('SET_DIALOG_LOADING', false)
+      this.success = true
     },
   },
 }

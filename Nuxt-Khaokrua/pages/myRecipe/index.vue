@@ -173,6 +173,27 @@
         </v-layout>
       </div>
     </div>
+    <v-dialog persistent v-model="del_success" width="500">
+      <v-card>
+        <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
+        <v-card-text class="textDetail">
+          ลบสูตรอาหารเรียบร้อย
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="success = !success"
+          >
+            ตกลง
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -193,6 +214,7 @@ export default {
   },
 
   data: () => ({
+    del_success: false,
     loading: false,
     dialogEdit: false,
     dialogDel: false,
@@ -252,7 +274,7 @@ export default {
         href: '/',
       },
       {
-        text: 'เมนูโปรด',
+        text: 'สูตรของฉัน',
         disabled: true,
         href: 'favorite',
       },
@@ -276,7 +298,7 @@ export default {
 
     async delMyRecipe(recipe_id) {
       console.log(recipe_id)
-      this.dialog = false
+      this.dialogDel = false
       console.log('deleteing ...')
       this.$store.commit('SET_DIALOG_LOADING', true)
       await axios
@@ -286,6 +308,7 @@ export default {
         })
       console.log('finished ...')
       this.$store.commit('SET_DIALOG_LOADING', false)
+      this.del_success = true
     },
 
     ClickEditRecipe(id) {

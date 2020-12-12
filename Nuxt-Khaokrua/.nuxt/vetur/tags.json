@@ -1,10 +1,4 @@
 {
-  "Popup": {
-    "description": "Auto imported from components/Popup/popup.vue"
-  },
-  "LazyPopup": {
-    "description": "Auto imported from components/Popup/popup.vue"
-  },
   "AddIngred": {
     "description": "Auto imported from components/AddRecipe/AddIngred.vue"
   },
@@ -16,6 +10,24 @@
   },
   "LazyAddSteps": {
     "description": "Auto imported from components/AddRecipe/AddSteps.vue"
+  },
+  "DialogPopUp": {
+    "description": "Auto imported from components/Popup/DialogPopUp.vue"
+  },
+  "LazyDialogPopUp": {
+    "description": "Auto imported from components/Popup/DialogPopUp.vue"
+  },
+  "Popup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
+  "LazyPopup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
+  "Success": {
+    "description": "Auto imported from components/Popup/Success.vue"
+  },
+  "LazySuccess": {
+    "description": "Auto imported from components/Popup/Success.vue"
   },
   "Loader": {
     "description": "Auto imported from components/Core/Loader.vue"

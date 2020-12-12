@@ -10,17 +10,17 @@ const createStore = () => {
             navLogin: false,
             loading: false,
             dialogMessage: "",
+            dialogState: false,
             userID: null,
             userData: {
-                email:"",
-                fname:"",
-                lname:"",
+                email: "",
+                fname: "",
+                lname: "",
                 password: "",
                 profile_name: "",
                 profile_pic: "",
                 user_id: ""
             },
-            dialogMessage: "",
             stateLoginDialog: false,
             loginState: false,
             SkeletonLoad: false
@@ -73,11 +73,21 @@ const createStore = () => {
             },
             SET_LOGIN_STATE(state, value) {
                 state.loginState = value
-            }
+            },
+            SET_DIALOG_STATE(state, value) {
+                state.dialogState = value
+            },
+            SET_DIALOG_MESSAGE(state, msg) {
+                state.dialogMessage = msg
+            },
+            SET_USERNAME (state, value) {
+                state.username = value
+              },
 
         },
         actions: {
-            
+
+
             defaultHome({ commit }) {
                 commit('SET_NAV_DEFAULT', true)
                 commit('SET_NAV_LOGIN', false)
@@ -97,7 +107,7 @@ const createStore = () => {
                     commit("SET_NAV_LOGIN", true)
                     commit("SET_LOGIN_STATE", true)
                     commit("SET_DIALOG_LOADING", false)
-                    console.log('Login State',this.state.loginState)
+                    console.log('Login State', this.state.loginState)
                     axios
                         .get('http://127.0.0.1:5000/api/user/' + this.state.userID)
                         .then((res) => {
@@ -119,7 +129,7 @@ const createStore = () => {
                 commit("SET_NAV_DEFAULT", true)
                 commit('SET_NAV_LOGIN', false)
                 commit("SET_LOGIN_STATE", false)
-                
+
                 // router.push({ name: "Home" })
             },
         },

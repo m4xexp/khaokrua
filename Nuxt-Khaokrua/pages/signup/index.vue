@@ -108,6 +108,27 @@
         </div>
       </v-form>
     </v-card>
+    <v-dialog persistent v-model="signup_suc" width="500">
+      <v-card>
+        <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
+        <v-card-text class="textDetail">
+          สมัครสมาชิกเรียบร้อย
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="signup_suc = !signup_suc"
+          >
+            ตกลง
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -119,6 +140,7 @@ export default {
   components: {},
   data() {
     return {
+      signup_suc: false,
       showPassword: false,
       user: {
         fname: '',
@@ -180,6 +202,7 @@ export default {
           console.log(err)
         })
         this.$store.commit("SET_DIALOG_LOADING", false)
+        this.signup_suc = true
     },
   },
 }

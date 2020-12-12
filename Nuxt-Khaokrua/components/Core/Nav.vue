@@ -6,7 +6,7 @@
       app
       dark
       class="header-nav"
-      src="../../assets/Nav/cover_khaokrua.jpg"
+      src="https://firebasestorage.googleapis.com/v0/b/khaokrua-e8479.appspot.com/o/cover_khaokrua.jpg?alt=media&token=7ba8172c-25e6-4585-8dde-9b108eb98054"
     >
 
       <!-- Logo KhaoKrua -->
@@ -18,7 +18,7 @@
               id="logo"
               class="shrink mr-2"
               contain
-              src="../../assets/Nav/KhaoKrua_logo.png"
+              src="https://firebasestorage.googleapis.com/v0/b/khaokrua-e8479.appspot.com/o/KhaoKrua_logo.png?alt=media&token=ea7ca56b-be32-47da-adb5-e956ab039f73"
               transition="scale-transition"
               width="180"
 

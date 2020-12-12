@@ -59,15 +59,17 @@
         </v-row>
       </v-form>
     </v-card>
+    <DialogPopup />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import DialogPopup from '../../components/Popup/DialogPopUp'
 
 export default {
   name: 'login',
-  components: {},
+  components: { DialogPopup },
   data() {
     return {
       showPassword: false,
@@ -87,16 +89,7 @@ export default {
     }
   },
   methods: {
-    // submit() {
-    //   var state = this.$refs.form.validate()
-    //   if (state) {
-    //     this.$store.dispatch({
-    //       type: 'doLogin',
-    //       email: this.account.email,
-    //       password: this.account.password,
-    //     })
-    //   }
-    // },
+
     async handleLoginClicked(event) {
       this.$store.commit('SET_DIALOG_LOADING', true)
       event.preventDefault()
@@ -117,6 +110,9 @@ export default {
         this.$store.commit('SET_NAV_DEFAULT', true)
         this.$store.commit('SET_NAV_LOGIN', false)
         this.$store.commit('SET_DIALOG_LOADING', false)
+        this.$store.dispatch({ type: "dialogPopup", value: true, msg: result.data.Message })
+        this.$store.commit("SET_USERNAME", null);
+
       } else {
         localStorage.setItem('USERNAME', result.data.Message)
         this.$store.commit('SET_LOGIN_STATE', true)
@@ -131,6 +127,7 @@ export default {
 
 <style scope>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
 
 * {
   list-style: none;

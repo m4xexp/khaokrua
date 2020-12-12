@@ -1,15 +1,19 @@
-export { default as Popup } from '../..\\components\\Popup\\popup.vue'
 export { default as AddIngred } from '../..\\components\\AddRecipe\\AddIngred.vue'
 export { default as AddSteps } from '../..\\components\\AddRecipe\\AddSteps.vue'
+export { default as DialogPopUp } from '../..\\components\\Popup\\DialogPopUp.vue'
+export { default as Popup } from '../..\\components\\Popup\\popup.vue'
+export { default as Success } from '../..\\components\\Popup\\Success.vue'
 export { default as Loader } from '../..\\components\\Core\\Loader.vue'
 export { default as Nav } from '../..\\components\\Core\\Nav.vue'
 export { default as NavLogin } from '../..\\components\\Core\\NavLogin.vue'
 export { default as NavLogSearch } from '../..\\components\\Core\\NavLogSearch.vue'
 export { default as PageNotFound } from '../..\\components\\Core\\PageNotFound.vue'
 
-export const LazyPopup = import('../..\\components\\Popup\\popup.vue' /* webpackChunkName: "components_Popup/popup" */).then(c => c.default || c)
 export const LazyAddIngred = import('../..\\components\\AddRecipe\\AddIngred.vue' /* webpackChunkName: "components_AddRecipe/AddIngred" */).then(c => c.default || c)
 export const LazyAddSteps = import('../..\\components\\AddRecipe\\AddSteps.vue' /* webpackChunkName: "components_AddRecipe/AddSteps" */).then(c => c.default || c)
+export const LazyDialogPopUp = import('../..\\components\\Popup\\DialogPopUp.vue' /* webpackChunkName: "components_Popup/DialogPopUp" */).then(c => c.default || c)
+export const LazyPopup = import('../..\\components\\Popup\\popup.vue' /* webpackChunkName: "components_Popup/popup" */).then(c => c.default || c)
+export const LazySuccess = import('../..\\components\\Popup\\Success.vue' /* webpackChunkName: "components_Popup/Success" */).then(c => c.default || c)
 export const LazyLoader = import('../..\\components\\Core\\Loader.vue' /* webpackChunkName: "components_Core/Loader" */).then(c => c.default || c)
 export const LazyNav = import('../..\\components\\Core\\Nav.vue' /* webpackChunkName: "components_Core/Nav" */).then(c => c.default || c)
 export const LazyNavLogin = import('../..\\components\\Core\\NavLogin.vue' /* webpackChunkName: "components_Core/NavLogin" */).then(c => c.default || c)

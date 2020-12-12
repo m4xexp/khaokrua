@@ -1,9 +1,6 @@
 <template>
   <div class="recipe-container">
-    <v-row
-      no-gutters
-      class="md-6"
-    >
+    <v-row no-gutters class="md-6">
       <v-sheet class="header-sheet-recipe-menu">
         <v-breadcrumbs class="recipe-breadcrumbs" large :items="breadcrumbs">
           <template v-slot:item="{ item }">
@@ -16,57 +13,56 @@
         <h1 class="header-recipe-text">{{ DataRecipe.title }}</h1>
 
         <div class="recipe-header-info">
-          <div class="author-box">
-            <v-card class="author-img" max-width="344">
-              <v-img
-                lazy-src="DataRecipe."
-                max-height="150"
-                max-width="150"
-                :src="DataRecipe.profile_pic"
-              ></v-img>
-            </v-card>
-            <div class="auther-text">
-              <div class="menu-rating">
-                <v-rating
-                  value="4.8"
-                  color="amber"
-                  dense
-                  half-increments
-                  readonly
-                  size="14"
-                ></v-rating>
+          <v-row>
+            <v-col md="6">
+              <div class="author-box">
+                <v-card class="author-img" max-width="344" style="margin: 20px">
+                  <v-img
+                    lazy-src="DataRecipe."
+                    max-height="150"
+                    max-width="150"
+                    :src="DataRecipe.profile_pic"
+                  ></v-img>
+                </v-card>
+                <div class="auther-text">
+                  <div class="menu-rating">
+                    <v-rating
+                      value="4.8"
+                      color="amber"
+                      dense
+                      half-increments
+                      readonly
+                      size="14"
+                    ></v-rating>
 
-                <div class="grey--text ml-4">(413)</div>
+                    <div class="grey--text ml-4">(413)</div>
+                  </div>
+
+                  <h4 id="recipeBy">
+                    สูตรโดย
+                    <span
+                      ><a class="author-link" href="#">{{
+                        DataRecipe.profile_name
+                      }}</a></span
+                    >
+                  </h4>
+                </div>
               </div>
-
-              <h4 id="recipeBy">
-                สูตรโดย
-                <span
-                  ><a class="author-link" href="#">{{
-                    DataRecipe.profile_name
-                  }}</a></span
-                >
-              </h4>
-            </div>
-          </div>
-          <!-- End Author box -->
-          <div class="recipe-share-area">
-            <div class="share-button">
-              <i class="fab fa-facebook"></i>
-              <v-btn><i class="fab fa-facebook"></i></v-btn>
-              <v-btn color="primary" @click="getDataRecipe"
-                ><v-icon>fab fa-facebook</v-icon></v-btn
-              >
-            </div>
-          </div>
+              <!-- End Author box -->
+            </v-col>
+            <v-col md="6">
+              <v-sheet style="padding: 20px;"  >
+                <span style="font-size: 20px">
+                  {{DataRecipe.description}}
+                </span>
+              </v-sheet>
+            </v-col>
+          </v-row>
         </div>
       </v-sheet>
     </v-row>
 
-    <v-row
-      no-gutters
-      class="md-6"
-    >
+    <v-row no-gutters class="md-6">
       <v-sheet class="content-sheet-recipe-menu">
         <div class="wrapper-recipe-card">
           <v-card class="recipe-card-img" max-width="400">
@@ -76,7 +72,10 @@
           </v-card>
         </div>
         <div class="wraper-addto-fav-icon">
-          <v-btn class="addto-fav-icon" color="success" @click="addFavoriteRecipe"
+          <v-btn
+            class="addto-fav-icon"
+            color="success"
+            @click="addFavoriteRecipe"
             ><span><v-icon>favorite_border</v-icon></span>
             เพิ่มในเมนูโปรด</v-btn
           >
@@ -84,11 +83,7 @@
       </v-sheet>
     </v-row>
 
-    <v-row
-      no-gutters
-      class="md-6"
-      id="wraper-data-recipe"
-    >
+    <v-row no-gutters class="md-6" id="wraper-data-recipe">
       <div class="recipe-share-area-res">
         <v-sheet class="sheet-recipe-share-area">
           <div class="share-button">
@@ -104,7 +99,9 @@
             <div class="data-time-recipe">
               <div class="data-prep-time">
                 <span class="prep-time">เวลาเตรียม :</span>
-                <span class="no-DataRecipe" href="#">{{ DataRecipe.prep_time }}</span>
+                <span class="no-DataRecipe" href="#">{{
+                  DataRecipe.prep_time
+                }}</span>
               </div>
               <div class="data-cook-time">
                 <span class="cook-time">เวลาทำอาหาร :</span>
@@ -132,7 +129,8 @@
                 style="margin: 15px 0px 15px 0px; width: 100%"
               ></v-divider>
               <div style="display: flex; justify-content: space-between">
-                <span>{{ DataRecipe.ingredients }}</span>n>
+                <span>{{ DataRecipe.ingredients }}</span
+                >n>
               </div>
             </v-sheet>
           </v-sheet>
@@ -177,18 +175,21 @@ export default {
   }),
   methods: {
     async addFavoriteRecipe() {
-      this.$store.commit("SET_DIALOG_LOADING", true)
+      this.$store.commit('SET_DIALOG_LOADING', true)
       await axios
         .post(
-          'http://127.0.0.1:5000/api/addfavorite/' + this.DataRecipe.recipe_id +'/' + this.$store.getters.getUserID
+          'http://127.0.0.1:5000/api/addfavorite/' +
+            this.DataRecipe.recipe_id +
+            '/' +
+            this.$store.getters.getUserID
         )
         .then((res) => {
-          console.log(res) 
+          console.log(res)
         })
         .catch((err) => {
           console.log(err)
         })
-      this.$store.commit("SET_DIALOG_LOADING", false)
+      this.$store.commit('SET_DIALOG_LOADING', false)
     },
   },
 
@@ -200,7 +201,6 @@ export default {
       .then((res) => {
         console.log('Here', res.data[0])
         this.DataRecipe = res.data[0]
-        
       })
     this.$store.commit('SET_DIALOG_LOADING', false)
   },
@@ -234,8 +234,6 @@ export default {
 }
 
 .recipe-header-info {
-  display: flex;
-  justify-content: space-around;
 }
 
 .author-box {

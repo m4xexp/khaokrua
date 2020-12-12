@@ -209,6 +209,27 @@
         </v-flex>
       </v-layout>
     </div>
+    <v-dialog persistent v-model="success_fav" width="500">
+      <v-card>
+        <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
+        <v-card-text class="textDetail">
+          ลบออกจากเมนูโปรดเรียบร้อย
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="success_fav = !success_fav "
+          >
+            ตกลง
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -218,13 +239,14 @@ import popup from '~/components/Popup/popup.vue'
 import axios from 'axios'
 
 export default {
-  middleware: 'authenticated',
+  // middleware: 'authenticated',
 
   name: 'Favorite',
 
   components: { popup },
 
   data: () => ({
+    success_fav: false,
     absolute: true,
     overlay: false,
     dialog: false,
@@ -290,6 +312,7 @@ export default {
         })
       console.log('finished ...')
       this.$store.commit('SET_DIALOG_LOADING', false)
+      this.success_fav = true
     
     },
 
