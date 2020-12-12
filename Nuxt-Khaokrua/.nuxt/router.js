@@ -4,17 +4,17 @@ import { normalizeURL } from '@nuxt/ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _8c134c98 = () => interopDefault(import('..\\pages\\add\\index.vue' /* webpackChunkName: "pages/add/index" */))
-const _64017c8d = () => interopDefault(import('..\\pages\\dummy\\index.vue' /* webpackChunkName: "pages/dummy/index" */))
-const _fb330456 = () => interopDefault(import('..\\pages\\Edit\\index.vue' /* webpackChunkName: "pages/Edit/index" */))
-const _165528a3 = () => interopDefault(import('..\\pages\\favorite\\index.vue' /* webpackChunkName: "pages/favorite/index" */))
-const _6d617968 = () => interopDefault(import('..\\pages\\Login\\index.vue' /* webpackChunkName: "pages/Login/index" */))
-const _03a45db6 = () => interopDefault(import('..\\pages\\myRecipe\\index.vue' /* webpackChunkName: "pages/myRecipe/index" */))
-const _1777d62c = () => interopDefault(import('..\\pages\\profile\\index.vue' /* webpackChunkName: "pages/profile/index" */))
-const _95617a9e = () => interopDefault(import('..\\pages\\recipe\\index.vue' /* webpackChunkName: "pages/recipe/index" */))
-const _3d7bfe57 = () => interopDefault(import('..\\pages\\search\\index.vue' /* webpackChunkName: "pages/search/index" */))
-const _5a346ce7 = () => interopDefault(import('..\\pages\\signup\\index.vue' /* webpackChunkName: "pages/signup/index" */))
-const _5c880502 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _a94cda1e = () => interopDefault(import('..\\pages\\add\\index.vue' /* webpackChunkName: "pages/add/index" */))
+const _ed094aec = () => interopDefault(import('..\\pages\\dummy\\index.vue' /* webpackChunkName: "pages/dummy/index" */))
+const _852b2790 = () => interopDefault(import('..\\pages\\Edit\\index.vue' /* webpackChunkName: "pages/Edit/index" */))
+const _37252d86 = () => interopDefault(import('..\\pages\\favorite\\index.vue' /* webpackChunkName: "pages/favorite/index" */))
+const _226dbd6e = () => interopDefault(import('..\\pages\\Login\\index.vue' /* webpackChunkName: "pages/Login/index" */))
+const _1efdd608 = () => interopDefault(import('..\\pages\\myRecipe\\index.vue' /* webpackChunkName: "pages/myRecipe/index" */))
+const _741bae2e = () => interopDefault(import('..\\pages\\profile\\index.vue' /* webpackChunkName: "pages/profile/index" */))
+const _3f112454 = () => interopDefault(import('..\\pages\\recipe\\index.vue' /* webpackChunkName: "pages/recipe/index" */))
+const _7184400c = () => interopDefault(import('..\\pages\\search\\index.vue' /* webpackChunkName: "pages/search/index" */))
+const _381362ec = () => interopDefault(import('..\\pages\\signup\\index.vue' /* webpackChunkName: "pages/signup/index" */))
+const _605f3222 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -34,47 +34,47 @@ export const routerOptions = {
 
   routes: [{
     path: "/add",
-    component: _8c134c98,
+    component: _a94cda1e,
     name: "add"
   }, {
     path: "/dummy",
-    component: _64017c8d,
+    component: _ed094aec,
     name: "dummy"
   }, {
     path: "/Edit",
-    component: _fb330456,
+    component: _852b2790,
     name: "Edit"
   }, {
     path: "/favorite",
-    component: _165528a3,
+    component: _37252d86,
     name: "favorite"
   }, {
     path: "/Login",
-    component: _6d617968,
+    component: _226dbd6e,
     name: "Login"
   }, {
     path: "/myRecipe",
-    component: _03a45db6,
+    component: _1efdd608,
     name: "myRecipe"
   }, {
     path: "/profile",
-    component: _1777d62c,
+    component: _741bae2e,
     name: "profile"
   }, {
     path: "/recipe",
-    component: _95617a9e,
+    component: _3f112454,
     name: "recipe"
   }, {
     path: "/search",
-    component: _3d7bfe57,
+    component: _7184400c,
     name: "search"
   }, {
     path: "/signup",
-    component: _5a346ce7,
+    component: _381362ec,
     name: "signup"
   }, {
     path: "/",
-    component: _5c880502,
+    component: _605f3222,
     name: "index"
   }],
 

@@ -2,67 +2,78 @@
   {
     "name": "add",
     "path": "/add",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\add\\\\index.vue",
-    "chunkName": "pages/add/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\add\\\\index.vue",
+    "chunkName": "pages/add/index",
+    "_name": "_a94cda1e"
   },
   {
     "name": "dummy",
     "path": "/dummy",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\dummy\\\\index.vue",
-    "chunkName": "pages/dummy/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\dummy\\\\index.vue",
+    "chunkName": "pages/dummy/index",
+    "_name": "_ed094aec"
   },
   {
     "name": "Edit",
     "path": "/Edit",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\Edit\\\\index.vue",
-    "chunkName": "pages/Edit/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\Edit\\\\index.vue",
+    "chunkName": "pages/Edit/index",
+    "_name": "_852b2790"
   },
   {
     "name": "favorite",
     "path": "/favorite",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\favorite\\\\index.vue",
-    "chunkName": "pages/favorite/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\favorite\\\\index.vue",
+    "chunkName": "pages/favorite/index",
+    "_name": "_37252d86"
   },
   {
     "name": "Login",
     "path": "/Login",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\Login\\\\index.vue",
-    "chunkName": "pages/Login/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\Login\\\\index.vue",
+    "chunkName": "pages/Login/index",
+    "_name": "_226dbd6e"
   },
   {
     "name": "myRecipe",
     "path": "/myRecipe",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\myRecipe\\\\index.vue",
-    "chunkName": "pages/myRecipe/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\myRecipe\\\\index.vue",
+    "chunkName": "pages/myRecipe/index",
+    "_name": "_1efdd608"
   },
   {
     "name": "profile",
     "path": "/profile",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\profile\\\\index.vue",
-    "chunkName": "pages/profile/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\profile\\\\index.vue",
+    "chunkName": "pages/profile/index",
+    "_name": "_741bae2e"
   },
   {
     "name": "recipe",
     "path": "/recipe",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\recipe\\\\index.vue",
-    "chunkName": "pages/recipe/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\recipe\\\\index.vue",
+    "chunkName": "pages/recipe/index",
+    "_name": "_3f112454"
   },
   {
     "name": "search",
     "path": "/search",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\search\\\\index.vue",
-    "chunkName": "pages/search/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\search\\\\index.vue",
+    "chunkName": "pages/search/index",
+    "_name": "_7184400c"
   },
   {
     "name": "signup",
     "path": "/signup",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\signup\\\\index.vue",
-    "chunkName": "pages/signup/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\signup\\\\index.vue",
+    "chunkName": "pages/signup/index",
+    "_name": "_381362ec"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokrua\\\\Nuxt-Khaokrua\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_605f3222"
   }
 ]
