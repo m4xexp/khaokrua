@@ -21,19 +21,14 @@
       <v-sheet class="sheet-add-menu">
         <!-- For menu title and Description -->
 
-        <div
-          class="wraper-sheet-add-menu"
-          v-for="data in recipeDetail"
-          :key="data.recipe_id"
-        >
+        <div class="wraper-sheet-add-menu">
           <div class="field-recipe-title">
             <div style="display: flex">
               <v-text-field
                 outlined
                 label="ชื่อเมนู"
                 append-icon="help_outline"
-                v-model="recipeDetail.title"
-                :value="data.title"
+                v-model="DataRecipe.title"
               >
               </v-text-field>
             </div>
@@ -41,7 +36,7 @@
             <v-textarea
               outlined
               label="รายละเอียด"
-              v-model="data.RecipeCaption"
+              v-model="DataRecipe.description"
             ></v-textarea>
           </div>
 
@@ -52,13 +47,11 @@
             <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
             <div class="auto-tag-field">
               <v-autocomplete
-                v-model="recipeDetail.RecipeTag"
+                v-model="DataRecipe.recipe_tag"
                 chips
                 deletable-chips
                 outlined
-                multiple
                 :items="states"
-                :readonly="!isEditing"
                 label="ทำไรกินดีน้า"
               >
               </v-autocomplete>
@@ -102,9 +95,8 @@
                   <div class="prep-time-input">
                     <v-text-field
                       solo
-                      placeholder="ใส่เวลาเตรียม"
-                      v-model="recipeDetail.serve"
-                      @blur="AddPrepTime"
+                      placeholder="เวลาเตรียม"
+                      v-model="prep_time.num"
                     >
                     </v-text-field>
                   </div>
@@ -113,7 +105,7 @@
                       :items="prep"
                       label="เวลา"
                       solo
-                      v-model="recipeDetail.serve"
+                      v-model="prep_time.unit"
                     ></v-select>
                   </div>
                 </div>
@@ -124,8 +116,8 @@
                   <div class="cook-time-input">
                     <v-text-field
                       solo
-                      placeholder="ใส่เวลาทำ"
-                      v-model="recipeDetail.serve"
+                      placeholder="เวลาปรุง"
+                      v-model="DataRecipe.cook_time"
                     >
                     </v-text-field>
                   </div>
@@ -134,7 +126,7 @@
                       :items="cookTime"
                       label="เวลา"
                       solo
-                      v-model="recipeDetail.serve"
+                      v-model="cook_time.unit"
                     ></v-select>
                   </div>
                 </div>
@@ -149,7 +141,7 @@
                     <v-text-field
                       solo
                       placeholder="สำหรับกี่ที่"
-                      v-model="recipeDetail.Serve"
+                      v-model="DataRecipe.serve"
                     >
                     </v-text-field>
                   </div>
@@ -159,76 +151,42 @@
                 <span>จำนวน :</span>
                 <div class="for-yield">
                   <div class="yield-input">
-                    <v-text-field
-                      solo
-                      placeholder="จำนวน"
-                      v-model="recipeDetail.serve"
-                    >
+                    <v-text-field solo placeholder="จำนวน" v-model="DataRecipe.yield">
                     </v-text-field>
                   </div>
                   <div class="yield-select">
-                    <v-text-field solo v-model="recipeDetail.serve">
-                    </v-text-field>
+                    <v-text-field solo v-model="yield2.unit"> </v-text-field>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Ingredients Text area -->
+          <!-- ingredients text area -->
 
-          <div class="field-recipe-ingredients">
-            <span class="ingredients-header">ส่วนผสม</span>
+          <div class="field-recipe-directions">
+            <span class="directions-header">ส่วนผสม</span>
             <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
-            <v-sheet
-              class="sheet-ingredients"
-              v-for="ingred in Ingredients"
-              :key="ingred.id"
-            >
-              <div class="ingredients-field">
-                <div class="input-name">
-                  <v-text-field
-                    :id="ingred.text"
-                    v-model="ingred.text"
-                    :value="ingred.text"
-                    outlined
-                    clearable
-                    placeholder="เช่น น้ำมะนาว"
-                    style="margin: 15px 0px 15px 0px"
-                    @blur="addIngredbeforePost"
-                  ></v-text-field>
-                </div>
-                <div class="input-unit" style="width: 40%">
-                  <v-text-field
-                    :id="ingred.unit"
-                    v-model="ingred.unit"
-                    :value="ingred.unit"
-                    outlined
-                    clearable
-                    placeholder="เช่น 2 ช้อนโต๊ะ"
-                    style="margin: 15px 0px 15px 20px"
-                    @blur="addIngredbeforePost"
-                  ></v-text-field>
-                </div>
-                <div class="action">
-                  <span class="delete-directions" @click="deleteStep"
-                    ><v-icon
-                      @click="deleteIngredient"
-                      style="margin-top: 28px; margin-left: 10px"
-                      >delete</v-icon
-                    ></span
-                  >
-                </div>
-              </div>
-            </v-sheet>
 
-            <div
-              class="btn-add-line-ingred"
-              style="margin: 20px; display: flex; justify-content: center"
-            >
-              <v-btn @click="addIngred" outlined color="success"
-                ><span><v-icon>add</v-icon></span> เพิ่มส่วนผสม</v-btn
-              >
+            <div style="display: flex; justify-content: space-between">
+              <v-textarea
+                v-model="DataRecipe.ingredients"
+                outlined
+                clearable
+                placeholder="เช่น ไข่ไก่ 3 ฟอง"
+                style="margin-top: 25px"
+              ></v-textarea>
+              <v-tooltip top>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon color="#757575" dark v-bind="attrs" v-on="on">
+                    help_outline
+                  </v-icon>
+                </template>
+                <span
+                  >ใส่ส่วนผสม 1 อย่างต่อ 1 แถว และใส่หน่วยของส่วนผสมต่อท้าย เช่น
+                  น้ำปลา 1 ช้อนโต๊ะ</span
+                >
+              </v-tooltip>
             </div>
           </div>
 
@@ -237,59 +195,28 @@
           <div class="field-recipe-directions">
             <span class="directions-header">วิธีทำ</span>
             <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
-            <v-sheet
-              class="sheet-directions"
-              v-for="(step, index) in steps"
-              :key="step.id"
-            >
-              <div
-                class="directions-field"
-                style="position: relative; height: 50px"
-              >
-                <div
-                  class="directions-item-label"
-                  v-if="!step.editing"
-                  @dblclick="editStep(step)"
+
+            <div style="display: flex; justify-content: space-between">
+              <v-textarea
+                v-model="DataRecipe.steps"
+                outlined
+                clearable
+                placeholder="เช่น ตั้งกระทะใส่น้ำมันเยอะๆ เปิดไฟกลางแล้วรอให้น้ำมันร้อนจัด"
+                style="margin-top: 25px"
+              ></v-textarea>
+              <v-tooltip top>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon color="#757575" dark v-bind="attrs" v-on="on">
+                    help_outline
+                  </v-icon>
+                </template>
+                <span
+                  >ใส่เลขลำดับวิธีทำไว้ด้านหน้า
+                  และเมื่อเขียนวิธีทำครบในแต่ละขั้นตอนแล้ว ควรเว้นบรรทัด 1
+                  บรรทัด</span
                 >
-                  <v-divider
-                    v-if="index !== 0"
-                    :key="`${index}-divider`"
-                    style="margin: 15px 0px 15px 0px; width: 100%"
-                  ></v-divider>
-
-                  <div
-                    class="text-label"
-                    style="display: flex; justify-content: space-between"
-                  >
-                    <span style="margin-left: 10px">{{ step.text }}</span>
-                    <span class="delete-directions" @click="deleteStep"
-                      ><v-icon>delete</v-icon></span
-                    >
-                  </div>
-                </div>
-
-                <div v-else class="directions-item-edit">
-                  <v-text-field
-                    autofocus
-                    outlined
-                    clearable
-                    @blur="doneEditStep(step)"
-                    @keydown.enter="doneEditStep(step)"
-                    v-model="step.text"
-                    style="margin: 0px"
-                  ></v-text-field>
-                </div>
-              </div>
-            </v-sheet>
-
-            <v-text-field
-              v-model="newStep"
-              outlined
-              clearable
-              placeholder="เช่น น้ำมะนาว 2 ช้อนโต๊ะ"
-              @keydown.enter="createStep"
-              style="margin-top: 25px"
-            ></v-text-field>
+              </v-tooltip>
+            </div>
           </div>
 
           <div class="btn-for-add-recipe">
@@ -312,39 +239,19 @@
 </template>
 
 <script>
-// import AddIngred from '~/components/AddRecipe/AddIngred';
 import axios from 'axios'
+import recipe from '../../services/recipe'
+import popup from '../../components/Popup/popup'
 
 export default {
+  name: 'edit',
   components: {},
 
   data: () => ({
-    isEditing: true,
-    model: null,
-    states: [
-      'ไข่ดาว',
-      'ไข่เจียว',
-      'ต้มยำกุ้ง',
-      'กะเพราหมูสับ',
-      'เบอร์เกอร์',
-      'ก๋วยเตี๋ยว',
-    ],
+    states: [],
     prep: ['นาที', 'ชั่วโมง', 'วัน'],
     cookTime: ['นาที', 'ชั่วโมง', 'วัน'],
-    idIngred: 0,
-    Ingredients: [
-      {
-        id: 0,
-        text: 'น้ำปลา',
-        unit: '2 ช้อนโต๊ะ',
-      },
-    ],
-    newIngred: null,
-    newUnit: null,
 
-    idStep: 0,
-    steps: [],
-    newStep: null,
     breadcrumbs: [
       {
         text: 'หน้าแรก',
@@ -358,40 +265,63 @@ export default {
       },
     ],
 
+    prep_time: {
+      num: '',
+      unit: '',
+    },
+    cook_time: {
+      num: '',
+      unit: '',
+    },
+    serve: '',
+    yield2: {
+      num: '',
+      unit: '',
+    },
+
     DataRecipe: {
+      author: '',
+      cook_time: '',
+      description: '',
+      ingredients: '',
+
+      photo_recipe:
+        'https://img.freepik.com/free-photo/board-amidst-cooking-ingredients_23-2147749529.jpg',
+      prep_time: '',
+      profile_name: '',
+      recipe_id: '',
+      serve: '',
+      steps: '',
       title: null,
-      photo_recipe: 'https://img.freepik.com/free-photo/board-amidst-cooking-ingredients_23-2147749529.jpg',
-      description: null,
-      RecipeTag: null,
-      PrepTime: {
-        num: null,
-        unit: null,
-      },
-      CookTime: {
-        num: null,
-        unit: null,
-      },
-      serve: null,
-      Yield: {
-        num: null,
-        unit: null,
-      },
-      Ingredients: [],
-      Directions: [],
+      yield: '',
+      recipe_tag: '',
     },
+    nextRid: '',
+
   }),
-
-  methods: {
-    async getDataRecipe(rid) {
-      this.$store.commit('SET_DIALOG_LOADING', true)
-      var rid = this.$route.query.rid
-      await axios.get('http://127.0.0.1:5000/api/recipe/' + rid).then((res) => {
-        this.recipeDetail = res.data
-        console.log(res.data)
+  async mounted() {
+    this.$store.commit('SET_DIALOG_LOADING', true)
+    var rid = this.$route.query.rid
+    this.nextRid = this.rid
+    var result = await axios
+      .get('http://127.0.0.1:5000/api/recipe/' + rid)
+      .then((res) => {
+        console.log('Here',res.data[0])
+        this.DataRecipe = res.data[0]
+        this.DataRecipe.title = res.data[0].title
+        this.DataRecipe.author = res.data[0].author
+        this.DataRecipe.cook_time = res.data[0].cook_time
+        this.DataRecipe.description = res.data[0].description
+        this.DataRecipe.ingredients = res.data[0].ingredients
+        this.DataRecipe.photo_recipe = res.data[0].author
+        this.DataRecipe.prep_time = res.data[0].cook_time
+        this.DataRecipe.yield = res.data[0].yield
+        this.DataRecipe.steps = res.data[0].steps
+        this.DataRecipe.serve = res.data[0].serve
       })
-      this.$store.commit('SET_DIALOG_LOADING', false)
-    },
-
+    this.$store.commit('SET_DIALOG_LOADING', false)
+  },
+  methods: {
     openUploadModal() {
       window.cloudinary
         .openUploadWidget(
@@ -410,74 +340,60 @@ export default {
         )
         .open()
     },
+    async saveRecipeData(event) {
+      var rid = this.$route.query.rid
+      this.$store.commit('SET_DIALOG_LOADING', true)
+      event.preventDefault()
+      this.DataRecipe.serve = this.serve
+      this.DataRecipe.prep_time = this.prep_time.num + ' ' + this.prep_time.unit
+      this.DataRecipe.cook_time = this.cook_time.num + ' ' + this.cook_time.unit
+      this.DataRecipe.yield = this.yield2.num + ' ' + this.yield2.unit
+      console.warn(this.DataRecipe)
+      console.warn('Before in to bodyform', this.$store.getters.getUserID)
+      var bodyFormData = new FormData()
+      bodyFormData.append('recipe_id', this.DataRecipe.recipe_id)
+      bodyFormData.append('title', this.DataRecipe.title)
+      bodyFormData.append('description', this.DataRecipe.description)
+      bodyFormData.append('photo_recipe', this.DataRecipe.photo_recipe)
+      bodyFormData.append('serve', this.DataRecipe.serve)
+      bodyFormData.append('prep_time', this.DataRecipe.prep_time)
+      bodyFormData.append('cook_time', this.DataRecipe.cook_time)
+      bodyFormData.append('yield2', this.DataRecipe.yield)
+      bodyFormData.append('ingredients', this.DataRecipe.ingredients)
+      bodyFormData.append('steps', this.DataRecipe.steps)
+      bodyFormData.append('tag', this.DataRecipe.recipe_tag)
+      bodyFormData.append('author', this.$store.getters.getUserID)
 
-    addIngred() {
-      this.Ingredients.push({
-        text: this.newIngred,
-        unit: this.newUnit,
+      await axios({
+        method: 'put',
+        url: 'http://127.0.0.1:5000/api/recipe/edit ',
+        data: bodyFormData,
+        headers: { 'Content-Type': 'multipart/form-data' },
       })
-
-      this.idIngred++
-      console.log(this.Ingredients)
-      this.DataRecipe.Ingredients = this.Ingredients.slice(
-        0,
-        this.Ingredients.length - 1
-      )
-    },
-
-    addIngredbeforePost() {
-      this.DataRecipe.Ingredients = this.Ingredients
-      console.log(this.Ingredients)
-    },
-
-    deleteIngredient(index) {
-      this.Ingredients.splice(index, 1)
-      this.DataRecipe.Ingredients = this.Ingredients
-      console.log(this.Ingredients)
-    },
-
-    createStep() {
-      this.steps.push({
-        id: this.idStep,
-        text: this.newStep,
-        editing: false,
-      })
-
-      this.idStep++
-      this.newStep = null
-      this.DataRecipe.Directions = this.steps
-      console.log(this.steps)
-    },
-
-    deleteStep(index) {
-      this.steps.splice(index, 1)
-      console.log(this.steps)
-    },
-
-    editStep(step) {
-      step.editing = true
-    },
-    doneEditStep(step) {
-      step.editing = false
-    },
-
-    saveRecipeData(recipe_id) {
-      // event.preventDefault()
-      axios
-        .put('http://127.0.0.1:5000/api/recipe/edit/' + recipe_id)
-        .then((res) => {
-          console.log(res)
+        .then(function (response) {
+          console.log(response)
         })
-      console.log(this.DataRecipe)
+        .catch(function (error) {
+          console.log(error)
+        })
+
+      console.log('Body Form', this.DataRecipe)
+      this.$store.commit('SET_DIALOG_LOADING', false)
     },
-  },
-  mounted() {
-    this.getDataRecipe(this.rid)
   },
 }
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
+* {
+  list-style: none;
+  outline: none;
+  font-family: 'Kanit', sans-serif;
+  box-sizing: border-box;
+}
+
 #row-header {
   width: 97%;
   margin-left: 20px;
@@ -649,7 +565,6 @@ export default {
 .btn-for-add-recipe {
   width: 100%;
   display: flex;
-  // margin: 25px 25px;
   justify-content: center;
 }
 
@@ -672,6 +587,8 @@ export default {
 .delete-ingredient {
   cursor: pointer;
   transition: 0.25s ease-in-out;
+  margin-top: 28px;
+  margin-left: 10px;
   &:hover {
     transform: scale(1.2);
   }
@@ -789,5 +706,3 @@ export default {
   }
 }
 </style>
-
-

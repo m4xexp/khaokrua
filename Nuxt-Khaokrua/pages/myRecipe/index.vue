@@ -268,7 +268,7 @@ export default {
         .get('http://127.0.0.1:5000/api/myrecipe/' + localStorage.getItem('USERNAME'))
         .then((res) => {
           this.myData = res.data
-          console.log('data here', this.myData)
+          console.log(res)
         })
       console.log('finished ...')
       this.$store.commit('SET_DIALOG_LOADING', false)

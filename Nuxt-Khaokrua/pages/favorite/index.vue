@@ -1,5 +1,6 @@
 <template>
   <div class="fav-container">
+
     <v-dialog v-model="dialogSuc" max-width="600">
       <v-card height="200">
         <v-card-title class="title">
@@ -77,7 +78,7 @@
           </span>
         </v-card>
 
-        <v-sheet
+        <!-- <v-sheet
           :color="`grey lighten-4`"
           class="pa-3"
         >
@@ -87,7 +88,7 @@
             width="400"
             type="card"
           ></v-skeleton-loader>
-        </v-sheet>
+        </v-sheet> -->
 
         <!-- Main favorite card -->
 
@@ -227,7 +228,7 @@ export default {
     absolute: true,
     overlay: false,
     dialog: false,
-    dialogSuc: true,
+    dialogSuc: false,
     favorite: [],
     tags: [
       { tagName: 'Drink' },
@@ -289,10 +290,7 @@ export default {
         })
       console.log('finished ...')
       this.$store.commit('SET_DIALOG_LOADING', false)
-      // this.$forceUpdate()
-      // setInterval(() => {
-      //       this.dialogSuc = true
-      //     }, 3000);
+    
     },
 
     AddDialog() {

@@ -1,6 +1,9 @@
 <template>
-  <div class="recipe-container" >
-    <v-row no-gutters class="md-6" v-for="data in recipeDetail" :key="data.recipe_id">
+  <div class="recipe-container">
+    <v-row
+      no-gutters
+      class="md-6"
+    >
       <v-sheet class="header-sheet-recipe-menu">
         <v-breadcrumbs class="recipe-breadcrumbs" large :items="breadcrumbs">
           <template v-slot:item="{ item }">
@@ -10,22 +13,22 @@
           </template>
         </v-breadcrumbs>
 
-        <h1 class="header-recipe-text">{{data.title}}</h1>
+        <h1 class="header-recipe-text">{{ DataRecipe.title }}</h1>
 
         <div class="recipe-header-info">
           <div class="author-box">
             <v-card class="author-img" max-width="344">
               <v-img
-                lazy-src="data.photo_recipe"
+                lazy-src="DataRecipe."
                 max-height="150"
                 max-width="150"
-                :src="data.photo_recipe"
+                :src="DataRecipe.profile_pic"
               ></v-img>
             </v-card>
             <div class="auther-text">
               <div class="menu-rating">
                 <v-rating
-                  value=4.8
+                  value="4.8"
                   color="amber"
                   dense
                   half-increments
@@ -38,7 +41,11 @@
 
               <h4 id="recipeBy">
                 สูตรโดย
-                <span><a class="author-link" href="#">{{data.profile_name}}</a></span>
+                <span
+                  ><a class="author-link" href="#">{{
+                    DataRecipe.profile_name
+                  }}</a></span
+                >
               </h4>
             </div>
           </div>
@@ -47,27 +54,29 @@
             <div class="share-button">
               <i class="fab fa-facebook"></i>
               <v-btn><i class="fab fa-facebook"></i></v-btn>
-              <v-btn color="primary" @click="getDataRecipe" ><v-icon>fab fa-facebook</v-icon></v-btn>
+              <v-btn color="primary" @click="getDataRecipe"
+                ><v-icon>fab fa-facebook</v-icon></v-btn
+              >
             </div>
           </div>
         </div>
       </v-sheet>
     </v-row>
 
-    <v-row no-gutters class="md-6" v-for="data in recipeDetail" :key="data.recipe_id">
+    <v-row
+      no-gutters
+      class="md-6"
+    >
       <v-sheet class="content-sheet-recipe-menu">
         <div class="wrapper-recipe-card">
           <v-card class="recipe-card-img" max-width="400">
             <div class="recipe-img">
-              <v-img
-                :src="data.photo_recipe"
-              >
-              </v-img>
+              <v-img :src="DataRecipe.photo_recipe"> </v-img>
             </div>
           </v-card>
         </div>
         <div class="wraper-addto-fav-icon">
-          <v-btn class="addto-fav-icon" color="success"
+          <v-btn class="addto-fav-icon" color="success" @click="addFavoriteRecipe"
             ><span><v-icon>favorite_border</v-icon></span>
             เพิ่มในเมนูโปรด</v-btn
           >
@@ -75,7 +84,11 @@
       </v-sheet>
     </v-row>
 
-    <v-row no-gutters class="md-6" id="wraper-data-recipe" v-for="(data3, index) in recipeDetail" :key="data3.recipe_id">
+    <v-row
+      no-gutters
+      class="md-6"
+      id="wraper-data-recipe"
+    >
       <div class="recipe-share-area-res">
         <v-sheet class="sheet-recipe-share-area">
           <div class="share-button">
@@ -91,21 +104,21 @@
             <div class="data-time-recipe">
               <div class="data-prep-time">
                 <span class="prep-time">เวลาเตรียม :</span>
-                <span class="no-data" href="#">{{data.prep_time}}</span>
+                <span class="no-DataRecipe" href="#">{{ DataRecipe.prep_time }}</span>
               </div>
               <div class="data-cook-time">
                 <span class="cook-time">เวลาทำอาหาร :</span>
-                <span class="no-data" href="#">{{data.cook_time}}</span>
+                <span class="no-data" href="#">{{ DataRecipe.cook_time }}</span>
               </div>
             </div>
             <div class="data-serve-recipe">
               <div class="data-serve">
                 <span class="serve-no">เสิร์ฟ :</span>
-                <span class="no-data" href="#">{{data.serve}} ที่</span>
+                <span class="no-data" href="#">{{ DataRecipe.serve }} ที่</span>
               </div>
               <div class="data-yield">
                 <span class="yield-no">จำนวน :</span>
-                <span class="no-data">{{data.yield}}</span>
+                <span class="no-data">{{ DataRecipe.yield }}</span>
               </div>
             </div>
           </v-sheet>
@@ -114,15 +127,12 @@
           <v-sheet class="ingredient-sheet-recipe-menu">
             <span class="ingredients-header-recipe">ส่วนผสม</span>
             <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
-            <v-sheet v-for="(ingr, index) in Ingreds" :key="ingr.ingrNO">
+            <v-sheet>
               <v-divider
-                v-if="index !== 0"
-                :key="`${index}-divider`"
                 style="margin: 15px 0px 15px 0px; width: 100%"
               ></v-divider>
               <div style="display: flex; justify-content: space-between">
-                <span>{{ ingr.ingred }}</span>
-                <span>{{ ingr.unit }}</span>
+                <span>{{ DataRecipe.ingredients }}</span>n>
               </div>
             </v-sheet>
           </v-sheet>
@@ -134,37 +144,21 @@
           <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
           <v-sheet>
             <v-divider
-              v-if="index !== 0"
-              :key="`${index}-divider`"
               style="margin: 15px 0px 15px 0px; width: 100%"
             ></v-divider>
-            <span>{{ data3.stepdetail }}</span>
+            <span>{{ DataRecipe.steps }}</span>
           </v-sheet>
         </v-sheet>
       </v-col>
-      <v-sheet class="direction-sheet-recipe-menu" id="sheet-responsive">
-        <span class="direction-header-recipe">วิธีทำ</span>
-        <v-divider style="margin: 5px 0px 20px 0px"></v-divider>
-        <v-sheet v-for="(data, index) in Directs" :key="Direct.recipe_id">
-          <v-divider
-            v-if="index !== 0"
-            :key="`${index}-divider`"
-            style="margin: 15px 0px 15px 0px; width: 100%"
-          ></v-divider>
-          <span>{{ data.step }}</span>
-        </v-sheet>
-      </v-sheet>
     </v-row>
   </div>
 </template>
 
 <script>
-
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-
-  name: "recipe",
+  name: 'recipe',
 
   data: () => ({
     breadcrumbs: [
@@ -176,30 +170,40 @@ export default {
       {
         text: 'เมนู',
         disabled: true,
-        href: 'favorite',
+        href: 'recipe',
       },
     ],
-    recipeDetail: [],
+    DataRecipe: [],
   }),
   methods: {
-
-    async getDataRecipe() {
+    async addFavoriteRecipe() {
       this.$store.commit("SET_DIALOG_LOADING", true)
-      var rid = this.$route.query.rid
-      await axios.get("http://127.0.0.1:5000/api/recipe/"+rid)
-      .then(res=>{
-        this.recipeDetail = res.data
-        console.log('data here', this.recipeDetail)
-      })
+      await axios
+        .post(
+          'http://127.0.0.1:5000/api/addfavorite/' + this.DataRecipe.recipe_id +'/' + this.$store.getters.getUserID
+        )
+        .then((res) => {
+          console.log(res) 
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       this.$store.commit("SET_DIALOG_LOADING", false)
-    }
+    },
   },
 
-  mounted(){
-    this.getDataRecipe()
-  } 
-    
-
+  async mounted() {
+    this.$store.commit('SET_DIALOG_LOADING', true)
+    var rid = this.$route.query.rid
+    var result = await axios
+      .get('http://127.0.0.1:5000/api/recipe/' + rid)
+      .then((res) => {
+        console.log('Here', res.data[0])
+        this.DataRecipe = res.data[0]
+        
+      })
+    this.$store.commit('SET_DIALOG_LOADING', false)
+  },
 }
 </script>
 
@@ -301,7 +305,6 @@ export default {
   margin: 20px auto;
 }
 
-
 #wraper-data-recipe {
   margin-top: 40px;
 }
@@ -330,7 +333,6 @@ export default {
   }
 }
 
-
 .data-time-recipe {
   display: flex;
 }
@@ -347,7 +349,7 @@ export default {
   width: 50%;
   text-align: right;
   border-bottom: 1px solid #606060;
-  
+
   // & .cook-time {
   //   font-weight: bold;
   // }
@@ -357,7 +359,6 @@ export default {
   width: 50%;
   text-align: left;
   border-right: 1px solid #606060;
-
 }
 
 .data-yield {
@@ -374,7 +375,6 @@ export default {
   border-radius: 10px 0px 0px 10px;
   padding: 20px;
 }
-
 
 .ingredients-header-recipe {
   font-weight: bold;
@@ -405,9 +405,9 @@ export default {
   display: block;
 }
 
-.recipe-share-area-res{
-    display: none;
-  }
+.recipe-share-area-res {
+  display: none;
+}
 
 @media only screen and (max-width: 1264px) {
   .recipe-container {
@@ -464,13 +464,12 @@ export default {
   .data-sheet-recipe-menu div > div {
     font-size: 12px;
   }
-  .recipe-share-area-res{
+  .recipe-share-area-res {
     width: 100%;
     display: block;
   }
   // .sheet-recipe-share-area{
   //   margin-top: 0px;
   // }
-  
 }
 </style>

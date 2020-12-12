@@ -324,11 +324,19 @@ export default {
       this.DataRecipe.prep_time = this.prep_time.num + ' ' + this.prep_time.unit
       this.DataRecipe.cook_time = this.cook_time.num + ' ' + this.cook_time.unit
       this.DataRecipe.yield = this.yield2.num + ' ' + this.yield2.unit
+      console.warn(this.DataRecipe)
+      console.warn('Before in to bodyform',this.$store.getters.getUserID)
       var bodyFormData = new FormData()
       bodyFormData.append('title', this.DataRecipe.title)
       bodyFormData.append('description', this.DataRecipe.description)
       bodyFormData.append('photo_recipe', this.DataRecipe.photo_recipe)
       bodyFormData.append('serve', this.DataRecipe.serve)
+      bodyFormData.append('prep_time', this.DataRecipe.prep_time)
+      bodyFormData.append('cook_time', this.DataRecipe.cook_time)
+      bodyFormData.append('yield2', this.DataRecipe.yield)
+      bodyFormData.append('ingredients', this.DataRecipe.ingredients)
+      bodyFormData.append('steps', this.DataRecipe.steps)
+      bodyFormData.append('tag', this.DataRecipe.recipe_tag)
       bodyFormData.append('author', this.$store.getters.getUserID)
 
       await axios({
@@ -344,7 +352,7 @@ export default {
           console.log(error)
         })
 
-      console.log('Data Recipe', this.DataRecipe)
+      console.log('Body Form', this.DataRecipe)
       this.$store.commit('SET_DIALOG_LOADING', false)
     },
     mounted() {},

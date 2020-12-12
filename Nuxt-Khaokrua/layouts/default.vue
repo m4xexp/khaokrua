@@ -34,13 +34,10 @@ export default {
     }
   },
   
-  mounted() {
-    this.$store.dispatch({ type: "restoreLogin" });
-    var token = this.$store.getters.getUserID
-    console.log('token',token)
-    var homeNav = this.$store.getters.getNavDefaultState
-    console.warn('Hove Nav',homeNav)
-
+  async mounted() {
+    this.$store.commit("SET_DIALOG_LOADING", true)
+    await this.$store.dispatch({ type: "restoreLogin" });
+    this.$store.commit("SET_DIALOG_LOADING", false)
   }
 }
 </script>

@@ -108,6 +108,7 @@ const createStore = () => {
                 } else {
                     commit("SET_NAV_DEFAULT", true)
                     commit('SET_NAV_LOGIN', false)
+                    commit("SET_LOGIN_STATE", false)
                     commit("SET_DIALOG_LOADING", false)
                 }
             },

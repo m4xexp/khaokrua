@@ -64,9 +64,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_in', method: 'post', propertyName: 'user.auth_jwt' },
-          logout: { url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out', method: 'delete' },
-          user: { url: 'https://sakko-demo-api.herokuapp.com/api/v1/user/me', method: 'get', propertyName: 'user' }
+          login: { url: 'http://127.0.0.1:5000/api/login', method: 'post', propertyName: 'user.auth_jwt' },
+          logout: { url: 'http://127.0.0.1:5000/api/sign_out', method: 'delete' },
+          user: { url: 'http://127.0.0.1:5000/api/user', method: 'get', propertyName: 'user' }
         },
         tokenName: 'auth-token'
       },

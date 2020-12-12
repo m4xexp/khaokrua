@@ -1,4 +1,10 @@
 {
+  "Popup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
+  "LazyPopup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
   "AddIngred": {
     "description": "Auto imported from components/AddRecipe/AddIngred.vue"
   },
@@ -40,11 +46,5 @@
   },
   "LazyPageNotFound": {
     "description": "Auto imported from components/Core/PageNotFound.vue"
-  },
-  "Popup": {
-    "description": "Auto imported from components/Popup/popup.vue"
-  },
-  "LazyPopup": {
-    "description": "Auto imported from components/Popup/popup.vue"
   }
 }

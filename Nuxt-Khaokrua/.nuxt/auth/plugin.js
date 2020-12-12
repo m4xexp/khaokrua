@@ -14,7 +14,7 @@ export default function (ctx, inject) {
 
   // Register strategies
   // local
-  $auth.registerStrategy('local', new scheme_3e2123be($auth, {"endpoints":{"login":{"url":"https://sakko-demo-api.herokuapp.com/api/v1/user/sign_in","method":"post","propertyName":"user.auth_jwt"},"logout":{"url":"https://sakko-demo-api.herokuapp.com/api/v1/user/sign_out","method":"delete"},"user":{"url":"https://sakko-demo-api.herokuapp.com/api/v1/user/me","method":"get","propertyName":"user"}},"tokenName":"auth-token","_name":"local"}))
+  $auth.registerStrategy('local', new scheme_3e2123be($auth, {"endpoints":{"login":{"url":"http://127.0.0.1:5000/api/login","method":"post","propertyName":"user.auth_jwt"},"logout":{"url":"http://127.0.0.1:5000/api/sign_out","method":"delete"},"user":{"url":"http://127.0.0.1:5000/api/user","method":"get","propertyName":"user"}},"tokenName":"auth-token","_name":"local"}))
 
   // Inject it to nuxt context as $auth
   inject('auth', $auth)

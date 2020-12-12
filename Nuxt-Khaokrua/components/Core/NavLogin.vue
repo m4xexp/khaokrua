@@ -161,9 +161,6 @@ export default {
   }),
 
   methods: {
-    login() {
-      this.dialog = true
-    },
     handleLogoutClicked() {
       this.$store.dispatch({
         type: 'logout',
