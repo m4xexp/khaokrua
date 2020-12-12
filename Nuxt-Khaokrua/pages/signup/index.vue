@@ -111,19 +111,13 @@
     <v-dialog persistent v-model="signup_suc" width="500">
       <v-card>
         <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
-        <v-card-text class="textDetail">
-          สมัครสมาชิกเรียบร้อย
-        </v-card-text>
+        <v-card-text class="textDetail"> สมัครสมาชิกเรียบร้อย </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="signup_suc = !signup_suc"
-          >
+          <v-btn color="primary" text @click="signup_suc = !signup_suc">
             ตกลง
           </v-btn>
         </v-card-actions>
@@ -174,18 +168,18 @@ export default {
       }
     },
     async handleRegisterClicked(event) {
-      this.$store.commit("SET_DIALOG_LOADING", true)
+      this.$store.commit('SET_DIALOG_LOADING', true)
       event.preventDefault()
       var bodyFormData = new FormData()
-      bodyFormData.append('fname', this.user.fname);
-      bodyFormData.append('lname', this.user.lname);  
+      bodyFormData.append('fname', this.user.fname)
+      bodyFormData.append('lname', this.user.lname)
       bodyFormData.append(
         'profilePic',
         'https://yt3.ggpht.com/ytc/AAUvwnh7XuN_QJ45cyqPzRBj42MLK9v0wwGqc62sc-OayA=s900-c-k-c0x00ffffff-no-rj'
-      );
-      bodyFormData.append('email', this.user.email);
-      bodyFormData.append('password', this.user.password);
-      bodyFormData.append('profile_name', this.user.profile_name);
+      )
+      bodyFormData.append('email', this.user.email)
+      bodyFormData.append('password', this.user.password)
+      bodyFormData.append('profile_name', this.user.profile_name)
 
       await axios({
         method: 'post',
@@ -200,9 +194,18 @@ export default {
         .catch(function (err) {
           //handle error
           console.log(err)
+          console.log(result)
+          if (result.data.Error) {
+            this.$store.commit('SET_DIALOG_LOADING', false)
+            this.$store.dispatch({
+              type: 'dialogPopup', 
+              value: true,
+              msg: result.data.Message,
+            })
+          }
         })
-        this.$store.commit("SET_DIALOG_LOADING", false)
-        this.signup_suc = true
+      this.$store.commit('SET_DIALOG_LOADING', false)
+      this.signup_suc = true
     },
   },
 }

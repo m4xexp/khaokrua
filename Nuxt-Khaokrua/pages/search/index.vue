@@ -3,16 +3,15 @@
     <v-row style="margin: 50px 20px auto; justify-content: center">
       <v-card class="search-text-field" elevation="1">
         <v-autocomplete
-          v-model="model"
+          :v-model="kw"
           hint="
                 เช่น ต้มยำกุ้ง, ข้าวผัด, ผัดกะเพราหมูสับไข่ดาว
               "
           :items="states"
-          :readonly="!isEditing"
           label="ทำไรกินดีน้า"
           persistent-hint
           prepend-icon="search"
-          @keydown.enter="searchRecipe"
+          @keydown.enter="letSearch(this.kw)"
         >
         </v-autocomplete>
       </v-card>
@@ -128,70 +127,14 @@
 import axios from 'axios'
 
 export default {
-  name: 'Home',
+  name: 'search',
 
   components: {},
 
-  pagination() {
-    return {
-      page: 1,
-    }
-  },
-
   data: () => ({
     loading: false,
-    selection: 1,
-    menus: [
-      {
-        Name: 'ต้มยำกุ้ง',
-        Author: 'KhaoKrua',
-        time: '1',
-        rate: 4.7,
-        src:
-          'https://d12man5gwydfvl.cloudfront.net/wp-content/uploads/2019/06/shutterstock_430308484.jpg',
-      },
-      {
-        Name: 'ข้าวผัด',
-        Author: 'KhaoKrua',
-        time: '1',
-        rate: 4.7,
-        src:
-          'https://i.pinimg.com/originals/8b/52/0c/8b520ccac4a4372d62d33770ece3c529.jpg',
-      },
-      {
-        Name: 'กะเพราทะเล',
-        Author: 'KhaoKrua',
-        time: '1',
-        rate: 4.7,
-        src: 'https://f.ptcdn.info/206/064/000/ps7ec58xwloZzLEw1eDJ-o.jpg',
-      },
-      {
-        Name: 'พิซซ่า',
-        Author: 'KhaoKrua',
-        time: '1',
-        rate: 4.7,
-        src:
-          'https://caffedolcemissoula.com/wp-content/uploads/2019/09/Pizza.jpg',
-      },
-    ],
-    tags: [
-      { tagName: 'Drink' },
-      { tagName: 'Main Disc' },
-      { tagName: 'Burger' },
-      { tagName: 'Noodle' },
-      { tagName: 'Fruit' },
-      { tagName: 'Cheese' },
-      { tagName: 'Cream' },
-      { tagName: 'Soft Drink' },
-      { tagName: 'Steak' },
-      { tagName: 'Milk' },
-      { tagName: 'Ice cream' },
-    ],
-    isEditing: true,
     model: null,
-    states: [
-
-    ],
+    states: [],
     breadcrumbs: [
       {
         text: 'หน้าแรก',
@@ -205,32 +148,47 @@ export default {
       },
     ],
     result: [],
+    kw: ''
   }),
   methods: {
     async searchRecipe() {
       console.log('geting recipe ...')
       this.$store.commit('SET_DIALOG_LOADING', true)
-      await axios.get('http://127.0.0.1:5000/api/search/').then((res) => {
+      await axios.get('http://127.0.0.1:5000/api/search/' + this.kw).then((res) => {
         this.result = res.data
         console.log('data here', this.result)
       })
       console.log('finished ...')
       this.$store.commit('SET_DIALOG_LOADING', false)
     },
-    async fetchRecipe() {
+    async fetchRecipe(keyword) {
       console.log('seaching recipe ...')
-      await axios.get('http://127.0.0.1:5000/api/search/keyword').then((res) => {
-        this.states = res.data
-        console.log('search here', res.data)
-      })
+      await axios
+        .get('http://127.0.0.1:5000/api/search/' + this.keyword)
+        .then((res) => {
+          this.states = res.data[0]
+          console.log('search here', res.data[0])
+        })
       console.log('search finished ...')
     },
     EnterSearch() {
       console.log('Search is work!')
     },
+    letSearch(kw){
+      console.log(kw)
+      this.$router.push({path: 'search' , query: {keyword: kw}});
+    },
   },
-  mounted() {
-    this.fetchRecipe()
+  async mounted() {
+    this.$store.commit('SET_DIALOG_LOADING', true)
+    var keyword = this.$route.query.keyword
+    var result = await axios
+      .get('http://127.0.0.1:5000/api/search/' + this.keyword)
+      .then((res) => {
+        console.log('Here', res.data[0])
+        this.DataRecipe = res.data[0]
+      })
+    this.$store.commit('SET_DIALOG_LOADING', false)
   },
 }
 </script>

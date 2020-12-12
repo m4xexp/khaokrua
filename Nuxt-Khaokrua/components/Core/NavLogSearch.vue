@@ -36,6 +36,7 @@
             label="ทำอะไรกินดีน้า"
             solo
             append-icon="search"
+            @keydown.enter="letSearch"
           ></v-text-field>
       </div>
 

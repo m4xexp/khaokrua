@@ -28,26 +28,17 @@
 
       <!-- Seach Recipe https://i.pinimg.com/originals/13/05/4e/13054e16f995defb42e543ccc0e32f58.jpg-->
 
-      <div class="search-field" style="display: none">
+      <div class="search-field">
         <div class="search-text-field-bar">
           <v-text-field
             light
-            style="width: 600px"
+            style="width: 100%"
             value="Beef Wellington"
             label="ทำอะไรกินดีน้า"
             solo
+            v-model="kw"
+            @keydown.enter="letSearch(this.kw)"
           ></v-text-field>
-        </div>
-        <div class="btn-search-icon">
-          <v-btn
-            large
-            height="50px"
-            color="red darken-1"
-            style="margin: 0 auto; left: 0px; bottom: 8px"
-            class="btn-search"
-          >
-            <v-icon large alt="searchRecipt">search</v-icon>
-          </v-btn>
         </div>
       </div>
       <ul class="nav-menu">
@@ -78,8 +69,6 @@
                 max-width="32px"
                 max-height="32px"
               >
-                <!-- ../assets/Profile/miew.jpg -->
-
                 <v-avatar>
                   <img
                     :src="$store.getters.getUserData.profile_pic"
@@ -146,8 +135,6 @@
 <script>
 export default {
   data: () => ({
-    image: [{ logoPath: '' }],
-    drawer: false,
     user: {
       email:"",
       fname:"",
@@ -158,6 +145,7 @@ export default {
       user_id:""
     },
     dialog: false,
+    kw: '',
   }),
 
   methods: {
@@ -165,6 +153,10 @@ export default {
       this.$store.dispatch({
         type: 'logout',
       })
+    },
+    letSearch(kw){
+      console.log('here is Keyword',kw)
+      this.$router.push({path: 'search' , query: {keyword: kw}});
     },
   }
 }

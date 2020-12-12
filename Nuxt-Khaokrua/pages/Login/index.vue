@@ -105,7 +105,6 @@ export default {
       })
       console.log(result)
       if (result.data.Error) {
-        this.$store.commit('SET_DIALOG_LOADING', false)
         this.$store.commit('SET_LOGIN_STATE', false)
         this.$store.commit('SET_NAV_DEFAULT', true)
         this.$store.commit('SET_NAV_LOGIN', false)

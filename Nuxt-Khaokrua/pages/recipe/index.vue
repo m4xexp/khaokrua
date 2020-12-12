@@ -149,16 +149,40 @@
         </v-sheet>
       </v-col>
     </v-row>
+    <v-dialog persistent v-model="success_add_fav" width="500">
+      <v-card>
+        <v-card-title color="#00E676"> แจ้งเตือน </v-card-title>
+        <v-card-text class="textDetail">
+          เพิ่มในเมนูโปรดเรียบร้อย
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="success_add_fav = !success_add_fav"
+          >
+            ตกลง
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <dialogPopup/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import dialogPopup from '../../components/Popup/DialogPopUp'
 
 export default {
   name: 'recipe',
 
   data: () => ({
+    success_add_fav: false,
     breadcrumbs: [
       {
         text: 'หน้าแรก',
@@ -190,6 +214,7 @@ export default {
           console.log(err)
         })
       this.$store.commit('SET_DIALOG_LOADING', false)
+      this.success_add_fav = true
     },
   },
 
