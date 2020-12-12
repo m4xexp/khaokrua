@@ -1,0 +1,68 @@
+[
+  {
+    "name": "add",
+    "path": "/add",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\add\\\\index.vue",
+    "chunkName": "pages/add/index"
+  },
+  {
+    "name": "dummy",
+    "path": "/dummy",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\dummy\\\\index.vue",
+    "chunkName": "pages/dummy/index"
+  },
+  {
+    "name": "Edit",
+    "path": "/Edit",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\Edit\\\\index.vue",
+    "chunkName": "pages/Edit/index"
+  },
+  {
+    "name": "favorite",
+    "path": "/favorite",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\favorite\\\\index.vue",
+    "chunkName": "pages/favorite/index"
+  },
+  {
+    "name": "Login",
+    "path": "/Login",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\Login\\\\index.vue",
+    "chunkName": "pages/Login/index"
+  },
+  {
+    "name": "myRecipe",
+    "path": "/myRecipe",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\myRecipe\\\\index.vue",
+    "chunkName": "pages/myRecipe/index"
+  },
+  {
+    "name": "profile",
+    "path": "/profile",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\profile\\\\index.vue",
+    "chunkName": "pages/profile/index"
+  },
+  {
+    "name": "recipe",
+    "path": "/recipe",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\recipe\\\\index.vue",
+    "chunkName": "pages/recipe/index"
+  },
+  {
+    "name": "search",
+    "path": "/search",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\search\\\\index.vue",
+    "chunkName": "pages/search/index"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\signup\\\\index.vue",
+    "chunkName": "pages/signup/index"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\lenovo\\\\Desktop\\\\khaokruanuxt\\\\Nuxt-Khaokrua\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]

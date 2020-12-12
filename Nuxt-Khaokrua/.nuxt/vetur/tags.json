@@ -1,0 +1,50 @@
+{
+  "Popup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
+  "LazyPopup": {
+    "description": "Auto imported from components/Popup/popup.vue"
+  },
+  "Loader": {
+    "description": "Auto imported from components/Core/Loader.vue"
+  },
+  "LazyLoader": {
+    "description": "Auto imported from components/Core/Loader.vue"
+  },
+  "Nav": {
+    "description": "Auto imported from components/Core/Nav.vue"
+  },
+  "LazyNav": {
+    "description": "Auto imported from components/Core/Nav.vue"
+  },
+  "NavLogin": {
+    "description": "Auto imported from components/Core/NavLogin.vue"
+  },
+  "LazyNavLogin": {
+    "description": "Auto imported from components/Core/NavLogin.vue"
+  },
+  "NavLogSearch": {
+    "description": "Auto imported from components/Core/NavLogSearch.vue"
+  },
+  "LazyNavLogSearch": {
+    "description": "Auto imported from components/Core/NavLogSearch.vue"
+  },
+  "PageNotFound": {
+    "description": "Auto imported from components/Core/PageNotFound.vue"
+  },
+  "LazyPageNotFound": {
+    "description": "Auto imported from components/Core/PageNotFound.vue"
+  },
+  "AddIngred": {
+    "description": "Auto imported from components/AddRecipe/AddIngred.vue"
+  },
+  "LazyAddIngred": {
+    "description": "Auto imported from components/AddRecipe/AddIngred.vue"
+  },
+  "AddSteps": {
+    "description": "Auto imported from components/AddRecipe/AddSteps.vue"
+  },
+  "LazyAddSteps": {
+    "description": "Auto imported from components/AddRecipe/AddSteps.vue"
+  }
+}

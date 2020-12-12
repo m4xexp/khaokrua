@@ -1,0 +1,31 @@
+{
+  "entry": "server.js",
+  "files": {
+    "pages/Edit/index.js": "pages/Edit/index.js",
+    "pages/Login/index.js": "pages/Login/index.js",
+    "pages/add/index.js": "pages/add/index.js",
+    "pages/dummy/index.js": "pages/dummy/index.js",
+    "pages/favorite/index.js": "pages/favorite/index.js",
+    "pages/index.js": "pages/index.js",
+    "pages/myRecipe/index.js": "pages/myRecipe/index.js",
+    "pages/profile/index.js": "pages/profile/index.js",
+    "pages/recipe/index.js": "pages/recipe/index.js",
+    "pages/search/index.js": "pages/search/index.js",
+    "pages/signup/index.js": "pages/signup/index.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "pages/Edit/index.js": "pages/Edit/index.js.map",
+    "pages/Login/index.js": "pages/Login/index.js.map",
+    "pages/add/index.js": "pages/add/index.js.map",
+    "pages/dummy/index.js": "pages/dummy/index.js.map",
+    "pages/favorite/index.js": "pages/favorite/index.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/myRecipe/index.js": "pages/myRecipe/index.js.map",
+    "pages/profile/index.js": "pages/profile/index.js.map",
+    "pages/recipe/index.js": "pages/recipe/index.js.map",
+    "pages/search/index.js": "pages/search/index.js.map",
+    "pages/signup/index.js": "pages/signup/index.js.map",
+    "server.js": "server.js.map"
+  }
+}
