@@ -187,7 +187,7 @@
           <v-btn
             color="primary"
             text
-            @click="success = !success"
+            @click="del_success = !del_success"
           >
             ตกลง
           </v-btn>
